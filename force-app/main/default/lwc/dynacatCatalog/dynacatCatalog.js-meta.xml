@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Dynacat: Catalog</masterLabel>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__AppPage">
+            <property name="objectApiName" type="String" default="Product2" label="Object API Name"
+                description="DeveloperName for the object being filters (eg. Product2)" />
+            <property name="uniqueFieldName" type="String" default="Id" label="Unique Field Name"
+                description="Field Name on the target object (eg Product) that is the unique identifier - can be ID or another External Id field." />
+            <property name="isActiveFieldName" type="String" default="IsActive" label="IsActive Field Name"
+                description="Field Name on the target object (eg Product) that determines if the product is active. Can be omitted but must be a Checkbox field or formula if included." />
+            <property name="defaultResults" type="Integer" default="12" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

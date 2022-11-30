@@ -1,0 +1,409 @@
+<template>
+    <template if:true={dataReady}>
+
+        <article class="slds-card">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__figure">
+                        <lightning-icon icon-name="standard:choice" size="small"></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            Filters
+                        </h2>
+                    </div>
+                </header>
+            </div>
+            <div class="slds-card__body slds-card__body_inner">
+
+
+
+                <div class="slds-tree_container filters">
+                    <ul class="slds-tree" role="tree">
+
+                        <template for:each={attributeList} for:item="att0">
+
+                            <template if:true={att0.hasChildren}>
+                                <li key={att0.id} data-id={att0.id} aria-expanded="true" aria-level={att0.level}
+                                    role="treeitem" tabindex="0">
+                                    <div class="slds-tree__item">
+                                        <lightning-button-icon data-id={att0.id} data-path={att0.path}
+                                            onclick={handleBranchClick} aria-expanded="true"
+                                            icon-name="utility:chevronright" variant="bare"
+                                            alternative-text="Expand Tree Branch" class="slds-m-right_x-small"
+                                            title="Expand"></lightning-button-icon>
+                                        <template if:true={att0.selectable}>
+                                            <div class="slds-form-element">
+                                                <div class="slds-form-element__control">
+                                                    <div class="slds-checkbox">
+                                                        <input type="checkbox" data-level={att0.level} id={att0.id}
+                                                            data-id={att0.id} data-path={att0.path}
+                                                            onchange={handleCheckboxClick} />
+                                                        <label class="slds-checkbox__label" for={att0.id}>
+                                                            <span class="slds-checkbox_faux"></span>
+                                                            <span class="slds-form-element__label">{att0.label}</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </template>
+                                        <template if:false={att0.selectable}>
+                                            <span class="slds-has-flexi-truncate">
+                                                <span class="slds-tree__item-label slds-truncate" title={att0.label}>
+                                                    <h1>{att0.label}</h1>
+                                                </span>
+                                            </span>
+                                        </template>
+                                    </div>
+                                    <ul role="group" data-ul={att0.id}>
+
+                                        <template for:each={att0._children} for:item="att1">
+
+                                            <template if:true={att1.hasChildren}>
+                                                <li key={att1.id} data-id={att1.id} aria-expanded="true"
+                                                    aria-level={att1.level} role="treeitem" tabindex="0">
+                                                    <div class="slds-tree__item">
+                                                        <lightning-button-icon data-id={att1.id} data-path={att1.path}
+                                                            onclick={handleBranchClick} aria-expanded="true"
+                                                            icon-name="utility:chevronright" variant="bare"
+                                                            alternative-text="Expand Tree Branch"
+                                                            class="slds-m-right_x-small" title="Expand">
+                                                        </lightning-button-icon>
+                                                        <template if:true={att1.selectable}>
+                                                            <div class="slds-form-element">
+                                                                <div class="slds-form-element__control">
+                                                                    <div class="slds-checkbox">
+                                                                        <input type="checkbox" data-level={att1.level}
+                                                                            id={att1.id} data-id={att1.id}
+                                                                            data-path={att1.path}
+                                                                            onchange={handleCheckboxClick} />
+                                                                        <label class="slds-checkbox__label"
+                                                                            for={att1.id}>
+                                                                            <span class="slds-checkbox_faux"></span>
+                                                                            <span
+                                                                                class="slds-form-element__label">{att1.label}</span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </template>
+                                                        <template if:false={att1.selectable}>
+                                                            <span class="slds-has-flexi-truncate">
+                                                                <span class="slds-tree__item-label slds-truncate"
+                                                                    title={att1.label}>{att1.label}</span>
+                                                            </span>
+                                                        </template>
+                                                    </div>
+                                                    <ul role="group" data-ul={att1.id}>
+
+
+                                                        <template for:each={att1._children} for:item="att2">
+
+                                                            <template if:true={att2.hasChildren}>
+                                                                <li key={att2.id} data-id={att2.id} aria-expanded="true"
+                                                                    aria-level={att2.level} role="treeitem"
+                                                                    tabindex="0">
+                                                                    <div class="slds-tree__item">
+                                                                        <lightning-button-icon data-id={att2.id}
+                                                                            data-path={att2.path}
+                                                                            onclick={handleBranchClick}
+                                                                            aria-expanded="true"
+                                                                            icon-name="utility:chevronright"
+                                                                            variant="bare"
+                                                                            alternative-text="Expand Tree Branch"
+                                                                            class="slds-m-right_x-small" title="Expand">
+                                                                        </lightning-button-icon>
+                                                                        <template if:true={att2.selectable}>
+                                                                            <div class="slds-form-element">
+                                                                                <div class="slds-form-element__control">
+                                                                                    <div class="slds-checkbox">
+                                                                                        <input type="checkbox"
+                                                                                            data-level={att2.level}
+                                                                                            id={att2.id}
+                                                                                            data-id={att2.id}
+                                                                                            data-path={att2.path}
+                                                                                            onchange={handleCheckboxClick} />
+                                                                                        <label
+                                                                                            class="slds-checkbox__label"
+                                                                                            for={att2.id}>
+                                                                                            <span
+                                                                                                class="slds-checkbox_faux"></span>
+                                                                                            <span
+                                                                                                class="slds-form-element__label">{att2.label}</span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </template>
+                                                                        <template if:false={att2.selectable}>
+                                                                            <span class="slds-has-flexi-truncate">
+                                                                                <span
+                                                                                    class="slds-tree__item-label slds-truncate"
+                                                                                    title={att2.label}>{att2.label}</span>
+                                                                            </span>
+                                                                        </template>
+                                                                    </div>
+                                                                    <ul role="group" data-ul={att2.id}>
+
+
+                                                                        <template for:each={att2._children}
+                                                                            for:item="att3">
+
+                                                                            <template if:true={att3.hasChildren}>
+                                                                                <li key={att3.id} data-id={att3.id}
+                                                                                    aria-expanded="true"
+                                                                                    aria-level={att3.level}
+                                                                                    role="treeitem" tabindex="0">
+                                                                                    <div class="slds-tree__item">
+                                                                                        <lightning-button-icon
+                                                                                            data-id={att3.id}
+                                                                                            data-path={att3.path}
+                                                                                            onclick={handleBranchClick}
+                                                                                            aria-expanded="true"
+                                                                                            icon-name="utility:chevronright"
+                                                                                            variant="bare"
+                                                                                            alternative-text="Expand Tree Branch"
+                                                                                            class="slds-m-right_x-small"
+                                                                                            title="Expand">
+                                                                                        </lightning-button-icon>
+                                                                                        <template
+                                                                                            if:true={att3.selectable}>
+                                                                                            <div
+                                                                                                class="slds-form-element">
+                                                                                                <div
+                                                                                                    class="slds-form-element__control">
+                                                                                                    <div
+                                                                                                        class="slds-checkbox">
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            data-level={att3.level}
+                                                                                                            id={att3.id}
+                                                                                                            data-id={att3.id}
+                                                                                                            data-path={att3.path}
+                                                                                                            onchange={handleCheckboxClick} />
+                                                                                                        <label
+                                                                                                            class="slds-checkbox__label"
+                                                                                                            for={att3.id}>
+                                                                                                            <span
+                                                                                                                class="slds-checkbox_faux"></span>
+                                                                                                            <span
+                                                                                                                class="slds-form-element__label">{att3.label}</span>
+                                                                                                        </label>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                        <template
+                                                                                            if:false={att3.selectable}>
+                                                                                            <span
+                                                                                                class="slds-has-flexi-truncate">
+                                                                                                <span
+                                                                                                    class="slds-tree__item-label slds-truncate"
+                                                                                                    title={att3.label}>{att3.label}</span>
+                                                                                            </span>
+                                                                                        </template>
+                                                                                    </div>
+                                                                                    <ul role="group" data-ul={att3.id}>
+
+
+
+
+
+
+
+                                                                                    </ul>
+                                                                                </li>
+                                                                            </template>
+                                                                            <template if:false={att3.hasChildren}>
+                                                                                <li key={att3.id}
+                                                                                    aria-level={att3.level}
+                                                                                    role="treeitem" tabindex="0">
+                                                                                    <div class="slds-tree__item">
+                                                                                        <lightning-button-icon
+                                                                                            aria-hidden="true"
+                                                                                            icon-name="utility:chevronright"
+                                                                                            variant="bare"
+                                                                                            alternative-text="Expand Tree Branch"
+                                                                                            class="slds-m-right_x-small slds-hidden"
+                                                                                            title="Expand">
+                                                                                        </lightning-button-icon>
+                                                                                        <template
+                                                                                            if:true={att3.selectable}>
+                                                                                            <div
+                                                                                                class="slds-form-element">
+                                                                                                <div
+                                                                                                    class="slds-form-element__control">
+                                                                                                    <div
+                                                                                                        class="slds-checkbox">
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            id={att3.id}
+                                                                                                            data-level={att3.level}
+                                                                                                            data-path={att3.path}
+                                                                                                            data-id={att3.id}
+                                                                                                            onchange={handleCheckboxClick} />
+                                                                                                        <label
+                                                                                                            class="slds-checkbox__label"
+                                                                                                            for={att3.id}>
+                                                                                                            <span
+                                                                                                                class="slds-checkbox_faux"></span>
+                                                                                                            <span
+                                                                                                                class="slds-form-element__label">{att3.label}</span>
+                                                                                                        </label>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                        <template
+                                                                                            if:false={att3.selectable}>
+                                                                                            <span
+                                                                                                class="slds-has-flexi-truncate">
+                                                                                                <span
+                                                                                                    class="slds-tree__item-label slds-truncate"
+                                                                                                    title={att3.label}>{att3.label}</span>
+                                                                                            </span>
+                                                                                        </template>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </template>
+
+                                                                        </template>
+
+
+
+
+
+                                                                    </ul>
+                                                                </li>
+                                                            </template>
+                                                            <template if:false={att2.hasChildren}>
+                                                                <li key={att2.id} aria-level={att2.level}
+                                                                    role="treeitem" tabindex="0">
+                                                                    <div class="slds-tree__item">
+                                                                        <lightning-button-icon aria-hidden="true"
+                                                                            icon-name="utility:chevronright"
+                                                                            variant="bare"
+                                                                            alternative-text="Expand Tree Branch"
+                                                                            class="slds-m-right_x-small slds-hidden"
+                                                                            title="Expand">
+                                                                        </lightning-button-icon>
+                                                                        <template if:true={att2.selectable}>
+                                                                            <div class="slds-form-element">
+                                                                                <div class="slds-form-element__control">
+                                                                                    <div class="slds-checkbox">
+                                                                                        <input type="checkbox"
+                                                                                            data-level={att2.level}
+                                                                                            id={att2.id}
+                                                                                            data-path={att2.path}
+                                                                                            data-id={att2.id}
+                                                                                            onchange={handleCheckboxClick} />
+                                                                                        <label
+                                                                                            class="slds-checkbox__label"
+                                                                                            for={att2.id}>
+                                                                                            <span
+                                                                                                class="slds-checkbox_faux"></span>
+                                                                                            <span
+                                                                                                class="slds-form-element__label">{att2.label}</span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </template>
+                                                                        <template if:false={att2.selectable}>
+                                                                            <span class="slds-has-flexi-truncate">
+                                                                                <span
+                                                                                    class="slds-tree__item-label slds-truncate"
+                                                                                    title={att2.label}>{att2.label}</span>
+                                                                            </span>
+                                                                        </template>
+                                                                    </div>
+                                                                </li>
+                                                            </template>
+
+                                                        </template>
+
+
+                                                    </ul>
+                                                </li>
+                                            </template>
+                                            <template if:false={att1.hasChildren}>
+                                                <li key={att1.id} aria-level={att1.level} role="treeitem" tabindex="0">
+                                                    <div class="slds-tree__item">
+                                                        <lightning-button-icon aria-hidden="true"
+                                                            icon-name="utility:chevronright" variant="bare"
+                                                            alternative-text="Expand Tree Branch"
+                                                            class="slds-m-right_x-small slds-hidden" title="Expand">
+                                                        </lightning-button-icon>
+                                                        <template if:true={att1.selectable}>
+                                                            <div class="slds-form-element">
+                                                                <div class="slds-form-element__control">
+                                                                    <div class="slds-checkbox">
+                                                                        <input type="checkbox" data-level={att1.level}
+                                                                            id={att1.id} data-path={att1.path}
+                                                                            data-id={att1.id}
+                                                                            onchange={handleCheckboxClick} />
+                                                                        <label class="slds-checkbox__label"
+                                                                            for={att1.id}>
+                                                                            <span class="slds-checkbox_faux"></span>
+                                                                            <span
+                                                                                class="slds-form-element__label">{att1.label}</span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </template>
+                                                        <template if:false={att1.selectable}>
+                                                            <span class="slds-has-flexi-truncate">
+                                                                <span class="slds-tree__item-label slds-truncate"
+                                                                    title={att1.label}>{att1.label}</span>
+                                                            </span>
+                                                        </template>
+                                                    </div>
+                                                </li>
+                                            </template>
+
+                                        </template>
+
+
+                                    </ul>
+                                </li>
+                            </template>
+                            <template if:false={att0.hasChildren}>
+                                <li key={att0.id} aria-level={att0.level} role="treeitem" tabindex="0">
+                                    <div class="slds-tree__item">
+                                        <lightning-button-icon aria-hidden="true" icon-name="utility:chevronright"
+                                            variant="bare" alternative-text="Expand Tree Branch"
+                                            class="slds-m-right_x-small slds-hidden" title="Expand">
+                                        </lightning-button-icon>
+                                        <template if:true={att0.selectable}>
+                                            <div class="slds-form-element">
+                                                <div class="slds-form-element__control">
+                                                    <div class="slds-checkbox">
+                                                        <input type="checkbox" data-level={att0.level} id={att0.id}
+                                                            data-id={att0.id} data-path={att0.path}
+                                                            onchange={handleCheckboxClick} />
+                                                        <label class="slds-checkbox__label" for={att0.id}>
+                                                            <span class="slds-checkbox_faux"></span>
+                                                            <span class="slds-form-element__label">{att0.label}</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </template>
+                                        <template if:false={att0.selectable}>
+                                            <span class="slds-has-flexi-truncate">
+                                                <span class="slds-tree__item-label slds-truncate" title={att0.label}>
+                                                    <h1>{att0.label}</h1>
+                                                </span>
+                                            </span>
+                                        </template>
+                                    </div>
+                                </li>
+                            </template>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </template>
+</template>

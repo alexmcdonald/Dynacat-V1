@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Dynacat: Attribute Selector</masterLabel>
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="lookupFieldName" type="String" default="Product__c" label="Lookup Field Name"
+                description="DeveloperName for the lookup field on the Record Attribute object that points to the record you are filtering." />
+            <property name="uniqueFieldName" type="String" default="Id" label="Unique Field Name"
+                description="Field Name on the target object (eg Product) that is the unique identifier - can be ID or another External Id field." />
+            <property name="expandedLevels" type="String" default="L0" label="Initially Expanded Levels"
+                description="Which levels should be pre-expanded - L0, L1, L2, etc." />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
