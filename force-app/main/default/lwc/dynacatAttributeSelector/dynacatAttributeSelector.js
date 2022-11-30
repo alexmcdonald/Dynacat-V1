@@ -1,9 +1,3 @@
-/*
- *  NB: This code is provided as sample code only
- *  It should not be used as-is in Production, and
- *  is not supported or warranted in any way by Salesforce.
- */
-
 import { LightningElement, wire, api, track } from 'lwc';
 import getActiveAttributes from '@salesforce/apex/DynacatAttSelectorController.getActiveAttributes';
 import saveRecordAttributes from '@salesforce/apex/DynacatAttSelectorController.saveRecordAttributes';

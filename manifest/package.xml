@@ -1,31 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>*</members>
+        <members>DynacatAttSelectorController</members>
+        <members>DynacatAttributeMethods</members>
+        <members>DynacatAttributeComparable</members>
+        <members>DynacatCatalogController</members>
+        <members>DynacatCatalogFiltersController</members>
+        <members>DynacatTests</members>
         <name>ApexClass</name>
     </types>
     <types>
-        <members>*</members>
-        <name>ApexComponent</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexPage</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexTestSuite</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexTrigger</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>AuraDefinitionBundle</name>
-    </types>
-    <types>
-        <members>*</members>
+        <members>Dynacat_Attribute__c</members>
+        <members>Dynacat_Product__c</members>
+        <members>Dynacat_Record_Attribute__c</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -33,20 +20,23 @@
         <name>LightningComponentBundle</name>
     </types>
     <types>
-        <members>*</members>
+        <members>dynacatFilterChanged</members>
         <name>LightningMessageChannel</name>
     </types>
     <types>
-        <members>*</members>
+        <members>Dynacat_Attribute_Record_Page</members>
+        <members>Dynacat_Product_Record_Page</members>
+        <members>Dynacat_Product2_Record_Page</members>
+        <members>Dynacat_Record_Attribute_Record_Page</members>
+        <members>Dynacat_Product2_Catalog</members>
         <name>FlexiPage</name>
     </types>
     <types>
-        <members>*</members>
+        <members>Dynacat_Attribute__c-Dynacat Attribute Layout</members>
+        <members>Dynacat_Product__c-Dynacat Product Layout</members>
+        <members>Dynacat_Product__c-Dynacat Product Community Layout</members>
+        <members>Dynacat_Record_Attribute__c-Dynacat Record Attribute Layout</members>
         <name>Layout</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>StaticResource</name>
     </types>
     <version>55.0</version>
 </Package>
