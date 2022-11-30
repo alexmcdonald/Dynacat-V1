@@ -4,7 +4,7 @@ import getActiveRecords from '@salesforce/apex/DynacatCatalogController.getActiv
 
 // Import message service features required for subscribing and the message channel
 import { subscribe, MessageContext } from 'lightning/messageService';
-import FILTER_CHANGED_CHANNEL from '@salesforce/messageChannel/DynacatFilterChanged__c';
+import FILTER_CHANGED_CHANNEL from '@salesforce/messageChannel/dynacatFilterChanged__c';
 
 export default class DynacatCatalog extends NavigationMixin(LightningElement) {
 

@@ -3,7 +3,7 @@ import getAttributes from '@salesforce/apex/DynacatCatalogFiltersController.getA
 
 // Import message service features required for publishing and the message channel
 import { publish, MessageContext } from 'lightning/messageService';
-import FILTER_CHANGED_CHANNEL from '@salesforce/messageChannel/DynacatFilterChanged__c';
+import FILTER_CHANGED_CHANNEL from '@salesforce/messageChannel/dynacatFilterChanged__c';
 
 export default class DynacatCatalogFilters extends LightningElement {
 
