@@ -16,6 +16,18 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>Dynacat_Attribute__c</members>
+        <members>Dynacat_Product__c</members>
+        <members>Dynacat_Record_Attribute__c</members>
+        <members>Dynacat_Catalog</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Dynacat/IconChoice</members>
+        <members>Dynacat/IconProducts</members>
+        <name>Document</name>
+    </types>
+    <types>
         <members>*</members>
         <name>LightningComponentBundle</name>
     </types>
