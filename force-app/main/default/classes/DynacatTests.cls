@@ -1,3 +1,9 @@
+/*
+ *  NB: This code is provided as sample code only
+ *  It should not be used as-is in Production, and
+ *  is not supported or warranted in any way by Salesforce.
+ */
+
 // Very basic test stubs only
 //
 @isTest
